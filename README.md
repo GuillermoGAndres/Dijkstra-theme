@@ -8,13 +8,20 @@ Era conocido por su baja opinión de la sentencia GOTO en programación, que cul
 
 ## Settings
 Clonar el repositorio en tu carpeta de themes y agregar en tu init.el
+
 ~~~
 (add-to-list 'custom-theme-load-path "~/.emacs.d/initFileEmacs/myThemes/Dijkstra-theme")
 (load-theme 'dijkstra t)
+;or 
+(load-theme 'dijkstra-dark t)
 
 ~~~
 
+#### Dijkstra-theme
+![Screenshot Dijkstra theme](./img/LinkedDijkstra.png)
 
+### Dijkstra-dark-theme
+![Screenshot Dijkstra dark theme](./img/LinkedDijkstraDark.png)
 
 ### Referencias 
 <https://amturing.acm.org/award_winners/dijkstra_1053701.cfm>
