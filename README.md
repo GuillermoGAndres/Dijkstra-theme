@@ -20,7 +20,7 @@ Clonar el repositorio en tu carpeta de themes y agregar en tu init.el
 #### Dijkstra-theme
 ![Screenshot Dijkstra theme](./img/LinkedDijkstra.png)
 
-### Dijkstra-dark-theme
+#### Dijkstra-dark-theme
 ![Screenshot Dijkstra dark theme](./img/LinkedDijkstraDark.png)
 
 ### Referencias 

@@ -86,7 +86,7 @@
    
    ;; --------------------------Tabs-------------------------------------
    ; Buen color naranja: #e9967a
-   '(tab-bar ((t (:inherit variable-pitch :background "#0C1A29" :foreground "#F0DFAF")))) 
+   '(tab-bar ((t (:inherit variable-pitch :background "#14191F" :foreground "#F0DFAF")))) 
    '(tab-bar-tab-inactive ((t (:inherit tab-bar-tab :background "#0C1A29" :foreground "#d6d6d6"))))
    
    ;; -------------------------Highlight region color-----------------------------------   
