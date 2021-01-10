@@ -31,6 +31,7 @@
    ;; ----------------- Frame stuff --------------------
    `(default ((t (:background ,dijkstra-background :foreground ,dijkstra-foreground))))
    `(cursor  ((t (:background ,dijkstra-off-white))))
+   ;;Marcado de la linea actual si es que esta activado.
    `(hl-line ((t (:background ,dijkstra-mid-gray))))
    
    ;; --------------------Mode line --------------------
@@ -38,7 +39,8 @@
    `(mode-line-inactive ((t (:box nil :background ,dijkstra-mid-gray :foreground ,dijkstra-light-gray-blue))))
    `(mode-line ((t (:box nil :foreground ,dijkstra-foreground :background ,dijkstra-dark-blue))))   
    ;; Dir-ed search prompt
-   `(minibuffer-prompt ((default (:foreground ,dijkstra-white))))
+   ;;`(minibuffer-prompt ((default (:foreground ,dijkstra-white))))
+   `(minibuffer-prompt ((default (:foreground "#FFC8AE")))) ;;  #FFBA99 or #FFC8AE naranjas 
    ;; Highlight region color
    ;`(region ((t (:foreground ,dijkstra-yellow-white :background ,dijkstra-darker-blue))))
    `(fringe ((t (:background ,dijkstra-background))))
@@ -62,7 +64,8 @@
    ;; Variables
    '(font-lock-type-face ((t (:foreground "#F0DFAF")))) ; Clases y types amarillas
    '(font-lock-constant-face ((t (:foreground "#F0DFAF")))) ;Contastantes amarillas   
-   '(font-lock-variable-name-face ((t (:foreground "#9FB3C2")))) ;Color verde chido #8AB8A2 or gris #9FB3C2, para los nombre de los tipos.
+   ;;'(font-lock-variable-name-face ((t (:foreground "#9FB3C2")))) ;Color verde chido #8AB8A2 or gris #9FB3C2, para los nombre de los tipos.
+   '(font-lock-variable-name-face ((t (:foreground "#FFC8AE")))) ;#FFC8AE naranjas
    ;;Warning
    `(font-lock-warning-face ((t (:foreground "#F28B86" :bold t))))
 
@@ -90,7 +93,8 @@
    '(tab-bar-tab-inactive ((t (:inherit tab-bar-tab :background "#0C1A29" :foreground "#d6d6d6"))))
    
    ;; -------------------------Highlight region color-----------------------------------   
-   '(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#F0DFAF"))))
+   '(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#F0DFAF")))) ;Lineas amarillas
+   ;;'(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#B3B3B3")))) ;Lineas grises
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
    '(region ((t (:background "gray37"))))
