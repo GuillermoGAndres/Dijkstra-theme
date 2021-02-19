@@ -10,7 +10,13 @@
 (deftheme dijkstra
   "A dark blue color theme :)")
 
-(let ((dijkstra-background      "#0C1A29")
+(custom-theme-set-variables
+ 'dijkstra
+ '(setq linum-format "%4d") ;; insert a space between number
+ '(fringe-mode '(20 . 0))) ;; make the left fringe 20 pixels wide and the right disappear
+
+(let ((dijkstra-background      "#0d101e") ;; azul 1
+      ;;(dijkstra-background      "#0C1A29")
       (dijkstra-foreground      "#d6d6d6")
       (dijkstra-mid-gray        "#666666")
       (dijkstra-darker-gray     "#14191f")
@@ -22,6 +28,9 @@
       (dijkstra-lighter-blue    "#748aa6")
       (dijkstra-light-blue      "#6ee2ff")
       (dijkstra-blue            "#324357")
+      (dijkstra-mode-line-blue  "#1e2338")
+      (dijkstra-modeI-line-blue "#0b0e18")
+      ;;(dijkstra-yellow          "#F0DFAF")
       (dijkstra-dark-blue       "#183c66")
       (dijkstra-darker-blue     "#1b232c")
       (dijkstra-green           "#95cc5e"))
@@ -29,15 +38,29 @@
    'dijkstra
 
    ;; ----------------- Frame stuff --------------------
-   `(default ((t (:background ,dijkstra-background :foreground ,dijkstra-foreground))))
+   `(default ((t (:background ,dijkstra-background :foreground ,dijkstra-foreground :weight semibold))))
+   ;;`(default ((t (:background "#0d101e" :foreground "#d6d6d6" :weight semibold)))) ;; azul 1
+   ;;'(default ((t (:background "#121930" :weight semibold)))) ;; azul 2 
+   ;;'(default ((t (:background "#13182a" :weight semibold)))) ;; azul 3
+   ;;'(default ((t (:background "#0f1928" :weight semibold)))) ;; azul 4
+   ;;'(default ((t (:background "#111928" :weight semibold)))) ;; azul 5
+   ;;`(default ((t (:background "#0b0e18" :weight semibold)))) ;; azul 6
+   ;;'(default ((t (:background "#222b43" :weight semibold)))) ;; azul muy luminoso   
+
    `(cursor  ((t (:background ,dijkstra-off-white))))
    ;;Marcado de la linea actual si es que esta activado.
    `(hl-line ((t (:background ,dijkstra-mid-gray))))
    
    ;; --------------------Mode line --------------------
-   `(modeline ((t (:background ,dijkstra-dark-blue :foreground ,dijkstra-foreground))))
-   `(mode-line-inactive ((t (:box nil :background ,dijkstra-mid-gray :foreground ,dijkstra-light-gray-blue))))
-   `(mode-line ((t (:box nil :foreground ,dijkstra-foreground :background ,dijkstra-dark-blue))))   
+   ;;`(mode-line ((t (:box nil :foreground ,dijkstra-foreground :background ,dijkstra-dark-blue))))
+   `(mode-line ((t (:box nil :background ,dijkstra-mode-line-blue :foreground ,dijkstra-foreground))))
+   ;;'(mode-line ((t (:background "#1e2338" :foreground :box nil))))
+   
+   ;;`(mode-line-inactive ((t (:box nil :background ,dijkstra-mid-gray :foreground ,dijkstra-light-gray-blue))))
+   `(mode-line-inactive ((t (:box nil :background ,dijkstra-modeI-line-blue :foreground ,dijkstra-light-gray-blue))))
+   ;;`(mode-line-inactive ((t (:box nil :background "#0b0e18" ))))
+      
+   
    ;; Dir-ed search prompt
    ;;`(minibuffer-prompt ((default (:foreground ,dijkstra-white))))
    `(minibuffer-prompt ((default (:foreground "#FFC8AE")))) ;;  #FFBA99 or #FFC8AE naranjas 
@@ -56,7 +79,8 @@
    ;;'(font-lock-function-name-face ((t (:foreground "#F28B86")))) ; color salmon para las funcines
    ;;'(font-lock-function-name-face ((t (:foreground "#F0DFAF")))) ; color amarillo fuerte igual al color que los types.
    ;;'(font-lock-function-name-face ((t (:foreground "#FAFFDB")))) ; color amarillo claro  
-   '(font-lock-function-name-face ((t (:foreground "#FFDAB5")))) ; color naranja claro
+   ;;'(font-lock-function-name-face ((t (:foreground "#FFDAB5")))) ; color naranja claro
+   '(font-lock-variable-name-face ((t (:foreground "#d6d6d6")))) ; color de la letra
    ;; Keywords
    '(font-lock-keyword-face ((t (:foreground "#8AC6F2" :weight normal)))) ;Color azul muy chido.
    ;; Strings
@@ -93,8 +117,14 @@
    '(tab-bar-tab-inactive ((t (:inherit tab-bar-tab :background "#0C1A29" :foreground "#d6d6d6"))))
    
    ;; -------------------------Highlight region color-----------------------------------   
-   '(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#F0DFAF")))) ;Lineas amarillas
+   ;;'(linum ((t (:inherit (shadow default) :background "#0d101e" :foreground "#F0DFAF")))) ;Lineas amarillas
+   ;;'(linum ((t (:inherit (shadow default) :background ,dijkstra-background :foreground ,dijkstra-yellow)))) ;Lineas amarillas
+
    ;;'(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#B3B3B3")))) ;Lineas grises
+   '(linum ((t (:inherit (shadow default) :background "#0d101e" :foreground "#4a4a4a")))) ;Lineas grises
+   ;; Gano el grey29: #4a4a4a , con este color de numero, automaticamente se carga una sombra con marcar.
+   ;; Gris muy plateado este grey59: #969696
+
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
    '(region ((t (:background "gray37"))))
