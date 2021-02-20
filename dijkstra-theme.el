@@ -10,13 +10,22 @@
 (deftheme dijkstra
   "A dark blue color theme :)")
 
-(custom-theme-set-variables
- 'dijkstra
- '(setq linum-format "%4d") ;; insert a space between number
- '(fringe-mode '(20 . 0))) ;; make the left fringe 20 pixels wide and the right disappear
+;; Only if you use linum-mode
+;; https://www.reddit.com/r/emacs/comments/6vwwt9/native_line_numbering_setting_width_to_current/
+;; https://www.reddit.com/r/emacs/comments/aa9rg7/how_to_make_line_numbers_in/
+;; https://emacs.stackexchange.com/questions/5289/any-way-to-get-a-working-separator-line-between-fringe-line-numbers-and-the-buff
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Window-Sizes.html
 
-(let ((dijkstra-background      "#0d101e") ;; azul 1
+;;(custom-theme-set-variables
+;; 'dijkstra
+;; '(linum-format "%4d") ;; insert a space between number
+;; '(fringe-mode 19)) ;; ;; make both fringes 19 pixels wide
+
+;; ----------------------------------------
+
+(let ((dijkstra-background      "#111928") ;; azul 7
       ;;(dijkstra-background      "#0C1A29")
+      ;;(dijkstra-background      "#0d101e") ;; azul 1
       (dijkstra-foreground      "#d6d6d6")
       (dijkstra-mid-gray        "#666666")
       (dijkstra-darker-gray     "#14191f")
@@ -45,6 +54,7 @@
    ;;'(default ((t (:background "#0f1928" :weight semibold)))) ;; azul 4
    ;;'(default ((t (:background "#111928" :weight semibold)))) ;; azul 5
    ;;`(default ((t (:background "#0b0e18" :weight semibold)))) ;; azul 6
+   ;;`(default ((t (:background "#111928" :weight semibold)))) ;; azul 7
    ;;'(default ((t (:background "#222b43" :weight semibold)))) ;; azul muy luminoso   
 
    `(cursor  ((t (:background ,dijkstra-off-white))))
@@ -63,7 +73,9 @@
    
    ;; Dir-ed search prompt
    ;;`(minibuffer-prompt ((default (:foreground ,dijkstra-white))))
-   `(minibuffer-prompt ((default (:foreground "#FFC8AE")))) ;;  #FFBA99 or #FFC8AE naranjas 
+   ;;`(minibuffer-prompt ((default (:foreground "#FFC8AE")))) ;;  #FFBA99 or #FFC8AE-naranja
+   `(minibuffer-prompt ((default (:foreground "#F0DFAF")))) ;;  Amarillo
+
    ;; Highlight region color
    ;`(region ((t (:foreground ,dijkstra-yellow-white :background ,dijkstra-darker-blue))))
    `(fringe ((t (:background ,dijkstra-background))))
@@ -71,25 +83,32 @@
    ;; ---------------- Code Highlighting ---------------
    ;; aquamarina : #7fffd4
    ;; Builtin
-   '(font-lock-builtin-face ((t (:foreground "#A4D1F2")))) ;;Azul claro #A4D1F2
+   ;;'(font-lock-builtin-face ((t (:foreground "#A4D1F2")))) ;;Azul claro #A4D1F2
+   '(font-lock-builtin-face ((t (:foreground "#add8e6")))) ;;lightblue:  #add8e6
    ;; Comments
-   '(font-lock-comment-face ((t (:foreground "#86B187")))) ; Comentarios de en linea
+   '(font-lock-comment-face ((t (:foreground "#86B187" :slant italic)))) ; Comentarios de en linea
    '(font-lock-doc-face ((t (:foreground "#86B187")))) ;Docsting gris chido #9FB3C2 or verde chido #86B187 o verde con un tono poco nitido #8AB8A2.
+   
    ;; Function names   
    ;;'(font-lock-function-name-face ((t (:foreground "#F28B86")))) ; color salmon para las funcines
-   ;;'(font-lock-function-name-face ((t (:foreground "#F0DFAF")))) ; color amarillo fuerte igual al color que los types.
+   '(font-lock-function-name-face ((t (:foreground "#F0DFAF")))) ; color amarillo fuerte igual al color que los types.
    ;;'(font-lock-function-name-face ((t (:foreground "#FAFFDB")))) ; color amarillo claro  
    ;;'(font-lock-function-name-face ((t (:foreground "#FFDAB5")))) ; color naranja claro
-   '(font-lock-variable-name-face ((t (:foreground "#d6d6d6")))) ; color de la letra
+
    ;; Keywords
-   '(font-lock-keyword-face ((t (:foreground "#8AC6F2" :weight normal)))) ;Color azul muy chido.
+   '(font-lock-keyword-face ((t (:foreground "#8AC6F2" :weight bold)))) ;Color azul muy chido.
+   
    ;; Strings
    '(font-lock-string-face ((t (:foreground "#D1907F")))) ;Cadenas naranjas
+   
    ;; Variables
    '(font-lock-type-face ((t (:foreground "#F0DFAF")))) ; Clases y types amarillas
-   '(font-lock-constant-face ((t (:foreground "#F0DFAF")))) ;Contastantes amarillas   
+   '(font-lock-constant-face ((t (:foreground "#F0DFAF")))) ;Contastantes amarillas
+   
    ;;'(font-lock-variable-name-face ((t (:foreground "#9FB3C2")))) ;Color verde chido #8AB8A2 or gris #9FB3C2, para los nombre de los tipos.
-   '(font-lock-variable-name-face ((t (:foreground "#FFC8AE")))) ;#FFC8AE naranjas
+   ;;'(font-lock-variable-name-face ((t (:foreground "#FFC8AE")))) ;#FFC8AE naranjas
+   '(font-lock-variable-name-face ((t (:foreground "#d6d6d6")))) ; color de la letra
+
    ;;Warning
    `(font-lock-warning-face ((t (:foreground "#F28B86" :bold t))))
 
@@ -116,15 +135,24 @@
    '(tab-bar ((t (:inherit variable-pitch :background "#0C1A29" :foreground "#F0DFAF")))) 
    '(tab-bar-tab-inactive ((t (:inherit tab-bar-tab :background "#0C1A29" :foreground "#d6d6d6"))))
    
-   ;; -------------------------Highlight region color-----------------------------------   
+   ;; -------------------------Highlight region color-----------------------------------
+
+   ;; --------------------linum-mode --------------------------------
    ;;'(linum ((t (:inherit (shadow default) :background "#0d101e" :foreground "#F0DFAF")))) ;Lineas amarillas
    ;;'(linum ((t (:inherit (shadow default) :background ,dijkstra-background :foreground ,dijkstra-yellow)))) ;Lineas amarillas
 
    ;;'(linum ((t (:inherit (shadow default) :background "#13182D" :foreground "#B3B3B3")))) ;Lineas grises
-   '(linum ((t (:inherit (shadow default) :background "#0d101e" :foreground "#4a4a4a")))) ;Lineas grises
+   '(linum ((t (:inherit (shadow default) :background "#111928" :foreground "#4a4a4a")))) ;Lineas grises
    ;; Gano el grey29: #4a4a4a , con este color de numero, automaticamente se carga una sombra con marcar.
    ;; Gris muy plateado este grey59: #969696
 
+   ;;-------------------- display-line-numbers-mode--- (otra modo como linum-mode, la diferencia puede resaltar el marcado linea actual)------
+   '(line-number ((t (:inherit (shadow default) :foreground "#4a4a4a")))) ;; letras frises
+   ;;'(line-number-current-line ((t (:inherit line-number :background "#404040" :foreground "#b5b5b5")))) ;; Con background
+   '(line-number-current-line ((t (:inherit line-number :foreground "#b5b5b5"))))
+   ;;'(line-number-current-line ((t (:inherit line-number :background "#404040" :foreground "#c4c4c4")))) ;un poco mas fuerte las letras
+
+   ;; ----------- treemacs ----------------------------
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
    '(region ((t (:background "gray37"))))
@@ -132,6 +160,33 @@
    ;; ---------------- Package Specific Stuff -----------
    ;; Powerlinec
    `(powerline-active1 ((t (:background ,dijkstra-off-white :foreground ,dijkstra-background))))
+
+   ;;--------------------Web mode --------------------
+   '(web-mode-doctype-face ((t (:foreground "lightblue")))) ;turquoise , lightblue, PaleTurquoise
+   '(web-mode-html-tag-face ((t (:foreground "#FFF8DC")))); amarillo
+   ;;'(web-mode-html-tag-face ((t (:foreground "#8AC6F2")))); azul
+
+   ;;'(web-mode-html-tag-face ((t (:foreground "#EFFBFF"))));Color de los brackets
+
+   '(web-mode-html-attr-name-face ((t (:foreground "#FFDAB5")))) ; naranja claro
+   ;;'(web-mode-html-attr-name-face ((t (:foreground "lightblue")))) ; azul-claro
+   ;;'(web-mode-html-attr-name-face ((t (:foreground "#BCEDDE")))) ;verde claro
+   
+   '(web-mode-html-attr-value-face ((t (:foreground "#D1907F")))) ; naranja fuerte
+   ;;'(web-mode-html-attr-value-face ((t (:foreground "#CAB4CC")))) ;
+   ;;'(web-mode-html-attr-value-face ((t (:foreground "#FFDAB5")))) ;
+   '(web-mode-html-attr-value-face ((t (:foreground "#deaece")))) ; rosa fuerte
+   '(web-mode-html-attr-value-face ((t (:foreground "#e3bcd6")))) ; rosa claro
+
+   ;;'(web-mode-comment-face ((t (:foreground "#EFFBFF")))) ;; Color blanco
+   
+   ;;----------------------JS2-mode------------------------------------
+   '(js2-error ((t (:foreground "#ed5f70" :slant italic :weight semi-bold))))
+   '(js2-warning ((t (:underline (:color "#EB9490" :style wave) :slant italic))))
+   '(js2-object-property ((t (:foreground "#FFDAB5")))) ; naranja claro
+   ;;'(js2-function-call ((t (:foreground "#FFDAB5")))) ; 
+   ;;'(js2-external-variable ((t (:foreground "#F4B3A0")))) ;
+   '(js2-function-param ((t (:foreground "#d6d6d6")))) ;; color de la letra normal 
 
 
    )
