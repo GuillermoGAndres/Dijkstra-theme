@@ -10,16 +10,15 @@
 (deftheme dijkstra
   "A dark blue color theme :)")
 
-;; Only if you use linum-mode
+;; Only if you use linum-mode descomment, otherwise commet
 ;; https://www.reddit.com/r/emacs/comments/6vwwt9/native_line_numbering_setting_width_to_current/
 ;; https://www.reddit.com/r/emacs/comments/aa9rg7/how_to_make_line_numbers_in/
 ;; https://emacs.stackexchange.com/questions/5289/any-way-to-get-a-working-separator-line-between-fringe-line-numbers-and-the-buff
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Window-Sizes.html
-
-;;(custom-theme-set-variables
-;; 'dijkstra
-;; '(linum-format "%4d") ;; insert a space between number
-;; '(fringe-mode 19)) ;; ;; make both fringes 19 pixels wide
+(custom-theme-set-variables
+ 'dijkstra
+ '(linum-format "%4d") ;; insert a space between number
+ '(fringe-mode 19)) ;; ;; make both fringes 19 pixels wide
 
 ;; ----------------------------------------
 
@@ -85,6 +84,7 @@
    ;; Builtin
    ;;'(font-lock-builtin-face ((t (:foreground "#A4D1F2")))) ;;Azul claro #A4D1F2
    '(font-lock-builtin-face ((t (:foreground "#add8e6")))) ;;lightblue:  #add8e6
+
    ;; Comments
    '(font-lock-comment-face ((t (:foreground "#86B187" :slant italic)))) ; Comentarios de en linea
    '(font-lock-doc-face ((t (:foreground "#86B187")))) ;Docsting gris chido #9FB3C2 or verde chido #86B187 o verde con un tono poco nitido #8AB8A2.
@@ -96,13 +96,19 @@
    ;;'(font-lock-function-name-face ((t (:foreground "#FFDAB5")))) ; color naranja claro
 
    ;; Keywords
-   '(font-lock-keyword-face ((t (:foreground "#8AC6F2" :weight bold)))) ;Color azul muy chido.
+   '(font-lock-keyword-face ((t (:foreground "#377db0" :weight bold)))) ;Color azul marino
+   ;;'(font-lock-keyword-face ((t (:foreground "#8AC6F2" :weight bold)))) ;Color azul muy chido.
 
    ;; Strings
-   '(font-lock-string-face ((t (:foreground "#D1907F")))) ;Cadenas naranjas
+   '(font-lock-string-face ((t (:foreground "#edb0a0")))) ;Cadenas naranja claro #edb0a0 or #D1907F
+   ;;'(font-lock-string-face ((t (:foreground "#D1907F")))) ;Cadenas naranjas
 
    ;; Variables
-   '(font-lock-type-face ((t (:foreground "#F0DFAF")))) ; Clases y types amarillas
+   ;;'(font-lock-type-face ((t (:foreground "#fff4cc")))) ; amarillo claro
+   '(font-lock-type-face ((t (:foreground "#ffe173")))) ; amarillo fuerte
+   ;;'(font-lock-type-face ((t (:foreground "#FFDAB5")))) ; naranja claro
+   
+   ;; Constantes
    '(font-lock-constant-face ((t (:foreground "#F0DFAF")))) ;Contastantes amarillas
 
    ;;'(font-lock-variable-name-face ((t (:foreground "#9FB3C2")))) ;Color verde chido #8AB8A2 or gris #9FB3C2, para los nombre de los tipos.
@@ -112,6 +118,8 @@
    ;;Warning
    `(font-lock-warning-face ((t (:foreground "#F28B86" :bold t))))
 
+   ;; Amarillo #dcb62c, rojo #f37d6c , verde #87e5c6, amariillo contastantes #F0DFAF, otro amarillo
+   
    ;; ---------------------------Company ---------------------------------------------------------
    '(company-preview ((t (:background "#373B41" :foreground "wheat"))))
    '(company-preview-common ((t (:inherit company-preview :foreground "wheat"))))
@@ -148,10 +156,13 @@
 
    ;;-------------------- display-line-numbers-mode--- (otra modo como linum-mode, la diferencia puede resaltar el marcado linea actual)------
    '(line-number ((t (:inherit (shadow default) :foreground "#4a4a4a")))) ;; letras frises
-   ;;'(line-number-current-line ((t (:inherit line-number :background "#404040" :foreground "#b5b5b5")))) ;; Con background
-   '(line-number-current-line ((t (:inherit line-number :foreground "#b5b5b5"))))
-   ;;'(line-number-current-line ((t (:inherit line-number :background "#404040" :foreground "#c4c4c4")))) ;un poco mas fuerte las letras
 
+   ;; Sin background
+   ;;'(line-number-current-line ((t (:inherit line-number :foreground "#b5b5b5"))))
+
+   ;; Con background
+   '(line-number-current-line ((t (:inherit line-number :background "#404040" :foreground "#F6F3E8")))) ;; Con background
+   
    ;; ----------- treemacs ----------------------------
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
@@ -163,22 +174,21 @@
 
    ;;--------------------Web mode --------------------
    '(web-mode-doctype-face ((t (:foreground "lightblue")))) ;turquoise , lightblue, PaleTurquoise
-   ;;'(web-mode-html-tag-face ((t (:foreground "#FFF8DC")))); amarillo
-   '(web-mode-html-tag-face ((t (:foreground "#8AC6F2")))); azul
-
-   ;;'(web-mode-html-tag-face ((t (:foreground "#EFFBFF"))));Color de los brackets
-
+   '(web-mode-html-tag-face ((t (:foreground "#398ecc")))); azul marino #398ecc
    '(web-mode-html-attr-name-face ((t (:foreground "#fff4cc")))) ; amarillo muy claro
+   '(web-mode-html-attr-value-face ((t (:foreground "#edb0a0")))) ; naranja claro
+
+   
+   ;; '(web-mode-html-tag-face ((t (:foreground "#8AC6F2")))); azul
+   ;;'(web-mode-html-tag-face ((t (:foreground "#FFF8DC")))); amarillo
+   ;;'(web-mode-html-tag-face ((t (:foreground "#EFFBFF"))));Color de los brackets
    ;;'(web-mode-html-attr-name-face ((t (:foreground "#FFDAB5")))) ; naranja muy claro
    ;;'(web-mode-html-attr-name-face ((t (:foreground "#FFF8DC")))) ; amarillo claro
-   ;;'(web-mode-html-attr-name-face ((t (:foreground "lightblue")))) ; azul-claro
+   ;;'(web-mode-html-attr-name-face ((t (:foreground "lightblue")))) ; azul-claro   
    ;;'(web-mode-html-attr-name-face ((t (:foreground "#BCEDDE")))) ;verde claro
-
-   '(web-mode-html-attr-value-face ((t (:foreground "#edb0a0")))) ; naranja claro
    ;;'(web-mode-html-attr-value-face ((t (:foreground "#D1907F")))) ; naranja fuerte
    ;;'(web-mode-html-attr-value-face ((t (:foreground "#deaece")))) ; rosa fuerte
    ;;'(web-mode-html-attr-value-face ((t (:foreground "#e3bcd6")))) ; rosa claro
-
    ;;'(web-mode-comment-face ((t (:foreground "#EFFBFF")))) ;; Color blanco
 
    ;;----------------------JS2-mode------------------------------------
