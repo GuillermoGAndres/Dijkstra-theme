@@ -29,14 +29,15 @@
    'dijkstra-dark
 
    ;; ----------------- Frame stuff --------------------
-   `(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground))))
+   `(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground :weight semibold))))
+   ;;`(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground))))
    `(cursor  ((t (:background ,dijkstra-dark-off-white))))
    `(hl-line ((t (:background ,dijkstra-dark-mid-gray))))
    
    ;; --------------------Mode line --------------------
-   `(modeline ((t (:background ,dijkstra-dark-dark-blue :foreground ,dijkstra-dark-foreground))))
-   `(mode-line-inactive ((t (:box nil :background ,dijkstra-dark-mid-gray :foreground ,dijkstra-dark-light-gray-blue))))
-   `(mode-line ((t (:box nil :foreground ,dijkstra-dark-foreground :background ,dijkstra-dark-dark-blue))))   
+   '(mode-line ((t (:box nil :foreground "#cacaca" :background "#323a4b"))))
+   '(mode-line-inactive ((t (:box nil :background "#414142" :foreground "#cacaca")))) ;; #2d2d2d or #414142
+   ;; #323a4b gris-azul, #2c2c3f morado, #3d4953 verde-azul or #304353
    ;; Dir-ed search prompt
    `(minibuffer-prompt ((default (:foreground ,dijkstra-dark-white))))
    ;; Highlight region color
@@ -98,8 +99,34 @@
    ;; ---------------- Package Specific Stuff -----------
    ;; Powerlinec
    `(powerline-active1 ((t (:background ,dijkstra-dark-off-white :foreground ,dijkstra-dark-background))))
+   ;;--------------------diredfl------------------------------
+   '(diredfl-date-time ((t (:foreground "#b8c4d7"))))
+   '(diredfl-dir-heading ((t (:foreground "#ceeca4"))))
+   '(diredfl-dir-name ((t (:foreground "#F0DFAF"))))
+   '(diredfl-dir-priv ((t (:foreground "#96e7e5"))))
+   '(diredfl-exec-priv ((t (:foreground "#D1907F"))))
+   '(diredfl-file-name ((t nil)))
+   '(diredfl-file-suffix ((t (:inherit diredfl-file-name))))
+   '(diredfl-no-priv ((t nil)))
+   '(diredfl-number ((t (:foreground "#F0DFAF"))))
+   '(diredfl-read-priv ((t (:foreground "#ceeca4"))))
+   '(diredfl-symlink ((t (:foreground "#96e7e5"))))
+   '(diredfl-write-priv ((t (:foreground "#F0DFAF"))))
+   '(diredfl-rare-priv ((t (:foreground "#afa9de"))))
 
+   ;;------------- display-line-number-mode ---------------
+   '(line-number ((t (:inherit (shadow default) :foreground "#898989")))) ;; letras grises
+   ;;'(line-number ((t (:inherit (shadow default) :foreground "#7a7a7a")))) ;; letras grises
+   '(line-number-current-line ((t (:inherit line-number :background "#2a2a2a":foreground "#Ffffff")))) ;; Con background
 
+   ;; ---------------- web-mode -------------------------
+   '(web-mode-doctype-face ((t (:foreground "#A4D1F2" :weight semibold)))) ; azul claro
+   '(web-mode-html-tag-face ((t (:foreground "#8AC6F2" :weight medium)))) ; azul marino
+   ;; ;;'(web-mode-html-tag-face ((t (:foreground "#EFFBFF"))));Color de los brackets
+   '(web-mode-html-attr-name-face ((t (:foreground "#F0DFAF" :weight semibold)))) ;amarillas
+   '(web-mode-html-attr-value-face ((t (:foreground "#D1907F" :weight semibold)))) ;naranjas
+   '(web-mode-comment-face ((t (:foreground "#86B187" :weight semibold :slant italic)))) ;; Color verde
+   
    )
 )
 
