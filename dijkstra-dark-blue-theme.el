@@ -1,5 +1,5 @@
 ;; ---------------------------
-;; Dijkstra-dark: A dark color theme
+;; Dijkstra-dark-blue: A dark blue color theme
 ;; Author: Guillermo Andres Urbano.
 ;; https://github.com/GuillermoGAndres/
 ;; ----------------------------
@@ -7,10 +7,10 @@
 (unless (>= emacs-major-version 24)
   (error "requires Emacs 24 or later."))
 
-(deftheme dijkstra-dark
-  "A dark color theme :)")
+(deftheme dijkstra-dark-blue
+  "A dark blue color theme :)")
 
-(let ((dijkstra-dark-background      "#131313")
+(let ((dijkstra-dark-background      "#14191F")
       (dijkstra-dark-foreground      "#d6d6d6")
       (dijkstra-dark-mid-gray        "#666666")
       (dijkstra-dark-darker-gray     "#14191f")
@@ -26,7 +26,7 @@
       (dijkstra-dark-darker-blue     "#1b232c")
       (dijkstra-dark-green           "#95cc5e"))
   (custom-theme-set-faces
-   'dijkstra-dark
+   'dijkstra-dark-blue
 
    ;; ----------------- Frame stuff --------------------
    `(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground :weight semibold))))
@@ -35,7 +35,7 @@
    `(hl-line ((t (:background ,dijkstra-dark-mid-gray))))
    
    ;; --------------------Mode line --------------------
-   '(mode-line ((t (:box nil :foreground "#cacaca" :background "#2c2c3f"))))
+   '(mode-line ((t (:box nil :foreground "#cacaca" :background "#323a4b"))))
    '(mode-line-inactive ((t (:box nil :background "#414142" :foreground "#cacaca")))) ;; #2d2d2d or #414142
    ;; #323a4b gris-azul, #2c2c3f morado, #3d4953 verde-azul or #304353
    ;; Dir-ed search prompt
@@ -91,7 +91,7 @@
    '(tab-bar-tab-inactive ((t (:inherit tab-bar-tab :background "#0C1A29" :foreground "#d6d6d6"))))
    
    ;; -------------------------Highlight region color-----------------------------------   
-   '(linum ((t (:inherit (shadow default) :background "#131313" :foreground "#F0DFAF"))))
+   '(linum ((t (:inherit (shadow default) :background "#14191F" :foreground "#F0DFAF"))))
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
    '(region ((t (:background "gray37"))))
@@ -138,7 +138,7 @@
   (when (not window-system)
     (custom-set-faces '(default ((t (:background nil)))))))
 
-(provide-theme 'dijkstra-dark)
+(provide-theme 'dijkstra-dark-blue)
 
 ;; Local Variables:
 ;; no-byte-compile: t
