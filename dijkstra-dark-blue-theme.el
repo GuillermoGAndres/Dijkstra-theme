@@ -32,7 +32,8 @@
    `(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground :weight semibold))))
    ;;`(default ((t (:background ,dijkstra-dark-background :foreground ,dijkstra-dark-foreground))))
    `(cursor  ((t (:background ,dijkstra-dark-off-white))))
-   `(hl-line ((t (:background ,dijkstra-dark-mid-gray))))
+   ;; `(hl-line ((t (:background ,dijkstra-dark-mid-gray))))
+   `(hl-line ((t (:background "#3c3f42"))))
    
    ;; --------------------Mode line --------------------
    '(mode-line ((t (:box nil :foreground "#cacaca" :background "#323a4b"))))
@@ -94,8 +95,12 @@
    '(linum ((t (:inherit (shadow default) :background "#14191F" :foreground "#F0DFAF"))))
    '(treemacs-fringe-indicator-face ((t (:foreground "#86B187"))))
    ;;'(region ((t (:foreground ,hoare-light-yellow :background "gray37"))))
-   '(region ((t (:background "gray37"))))
+
+   ;; '(region ((t (:background "gray37"))))
+   '(region ((t (:background "#5e5e5e")))) ;; gray37
+   ;;'(region ((t (:background "#707070")))) ;; gray 40
    
+
    ;; ---------------- Package Specific Stuff -----------
    ;; Powerlinec
    `(powerline-active1 ((t (:background ,dijkstra-dark-off-white :foreground ,dijkstra-dark-background))))
